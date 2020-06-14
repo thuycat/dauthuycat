@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_Share/_Layout.cshtml";
+}
+@* khai bao de su dung cac class ttrong thu muc model *@
+@using BTVN11.Models
+@* khao bao de su dung phan trang *@
+@using X.PagedList.Mvc.Core;
+@* khao bao kieu du lieu cua model *@
+@model X.PagedList.IPagedList<users>
+@section AjaxEditUser{ 
+    <script src="~/Frontend/js/User.js"></script>
+}
+@*<h2>Index</h2>*@
+<div class="col-md-12">
+    <div style="margin-bottom:5px;">
+        <a href="~/Admin/Users/Add" class="btn btn-primary">Add user</a>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">List User</div>
+        <div class="panel-body">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th style="width:100px;"></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.name</td>
+                        <td>@item.email</td>
+                        <td style="text-align:center;">
+                            <a href="/Admin/Users/Edit?id=@item.id">Edit</a>&nbsp;
+                            <a href="/Admin/Users/Delete?id=@item.id" onclick="return window.confirm('Are you sure?');">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <style type="text/css">
+                .pagination {
+                    padding: 0px;
+                    margin: 0px;
+                }
+            </style>
+            @* thuc hien phan trang *@
+            @* /user/Index?page=1,2,3..... *@
+            @* Url.Action("ten action",tencontroller",new{danh sach bien}) *@
+            @Html.PagedListPager(Model, page => Url.Action("List", "Users", new { page }))
+        </div>
+    </div>
+</div>
+

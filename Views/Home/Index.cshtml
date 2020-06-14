@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_Share/_Layout.cshtml";
+}
+@section fontawesome{
+    @*<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">*@
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link href="~/Admin/css/style.css" rel="stylesheet" />
+
+}
+
+@section Jquery{
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
+}
+@section script{
+   
+    <script src="~/Frontend/js/plugins/mustache.min.js"></script>
+    <script src="~/Frontend/js/controller/IndexHome.js"></script>
+}
+<div class="col-md-12">
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Adduser
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">thêm nhân sự</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <label>Username</label>
+                        <input type="text" class="form-control" required placeholder="Enter namel" id="name">
+                        <br />
+                        <label>Email</label>
+                        <input type="email" required class="form-control" placeholder="Enter email" id="email">
+                        <br />
+                        <label>password</label>
+                        <input type="password" class="form-control" placeholder="Enter password" id="password">
+                    </div>
+
+                    <button id="addUser" type="button" class="btn btn-danger">ADD</button>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <form action="#" method="post">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">action </th>
+                    </tr>
+                </thead>
+                <tbody id="idTblData">
+                </tbody>
+            </table>
+            <!-- The Modal -->
+            <div class="modal" id="myModal1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">sửa thông tin nhân viên <span id="nameUser"></span></h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <label>Username</label>
+                            <input type="text" class="form-control" required placeholder="Enter namel" id="Edname">
+                            <br />
+                            <label>Email</label>
+                            <input type="email" required class="form-control" placeholder="Enter email" id="Edemail">
+                            <br />
+                            <label>password</label>
+                            <input type="password" class="form-control"  placeholder="change password" id="Edpassword">
+                        </div>
+
+                        <button id="EditMyUser"  type="button" class="btn btn-danger">Edit</button>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
